@@ -17,3 +17,7 @@ use App\Http\Controllers\ApiController;
 Route::get('/tesapi', [ApiController::class, 'getData']);
 
 Route::get('/apibyid/{id}', [ApiController::class, 'getDataByUserId']);
+
+Route::get('/apijs', function () {
+    return view('apijs');
+});
