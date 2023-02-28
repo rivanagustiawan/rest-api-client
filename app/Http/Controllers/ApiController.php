@@ -7,21 +7,24 @@ use Illuminate\Support\Facades\Http;
 
 class ApiController extends Controller
 {
-    public function getData(){
+    public function getBWA()
+    {
         $response = Http::withHeaders([
-            'Authorization' => 'Bearer 1|MWl7UozmKZ9yPI5OAEGPOdYXPHXiC8Y3OMnoJ3ZT',
             'Accept' => 'Application/json'
-        ])->get('http://127.0.0.1:8000/api/posts');
+        ])->get('https://buildwithangga.com/api/catalog/code');
 
-        dd($response->json());
+        return view('bwa', [
+            'response' => $response->json()
+        ]);
     }
-
-    public function getDataByUserId($id){
+    public function getBWADesign()
+    {
         $response = Http::withHeaders([
-            'Authorization' => 'Bearer 1|MWl7UozmKZ9yPI5OAEGPOdYXPHXiC8Y3OMnoJ3ZT',
             'Accept' => 'Application/json'
-        ])->get('http://127.0.0.1:8000/api/posts/'.$id);
+        ])->get('https://buildwithangga.com/api/catalog/design');
 
-        dd($response, $response->json());
+        return view('bwa', [
+            'response' => $response->json()
+        ]);
     }
 }
